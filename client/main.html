@@ -1,0 +1,28 @@
+<head>
+  <title>gitpod-meteor</title>
+</head>
+
+<body>
+  <h1>Export</h1>
+
+  {{> export}}
+</body>
+
+<template name="export">
+  <button id="export">Export</button>
+  <button id="clean">Clean</button><br /><br />
+  Exports :
+  <ul>
+    {{#each export in exports}}
+      <li>
+        {{export.name}} : 
+        {{#if export.done}}
+          {{export.url}}
+        {{else}}
+          <progress value="{{export.progress}}" max="100">{{export.progress}} %</progress>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+  <p>{{result}}</p>
+</template>
